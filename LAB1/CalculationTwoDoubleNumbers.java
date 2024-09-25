@@ -3,10 +3,10 @@ import javax.swing.JOptionPane;
 public class CalculationTwoDoubleNumbers {
     public static void main(String args[]){
         String strNum1, strNum2;
-        String strSum = "The sum of two numbers is: ";
-        String strDifference = "The difference of two numbers is: ";
-        String strProduct = "The product of two numbers is: ";
-        String strQuotient = "The quotient of two numbers is: ";
+        String strSum = "Bao Phuc - The sum of two numbers is: ";
+        String strDifference = "Bao Phuc - The difference of two numbers is: ";
+        String strProduct = "Bao Phuc -The product of two numbers is: ";
+        String strQuotient = "Bao Phuc - The quotient of two numbers is: ";
 
         strNum1 = JOptionPane.showInputDialog(null, 
                 "Please input the first number: ", 
@@ -21,15 +21,12 @@ public class CalculationTwoDoubleNumbers {
         double Num2 = Double.parseDouble(strNum2);
 
         double sum = Num1 + Num2;
-        strSum += sum;
         double difference = Math.abs(Num1 - Num2);
-        strDifference += difference;
         double product = Num1 * Num2;
-        strProduct += product;
         double quotient = Num2 != 0 ? Num1 / Num2 : 0;
-        strQuotient += quotient;
 
-        JOptionPane.showMessageDialog(null, strSum + "\n" + strDifference + "\n" + strProduct + "\n" + strQuotient,
+        JOptionPane.showMessageDialog(null, strSum + sum + "\n" + strDifference + difference + "\n" 
+                    + strProduct + product + "\n" + strQuotient + quotient,
                     "Show calculation results", JOptionPane.INFORMATION_MESSAGE);
         System.exit(0);
 
