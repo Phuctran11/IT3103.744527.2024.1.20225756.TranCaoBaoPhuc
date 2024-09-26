@@ -16,7 +16,7 @@ public class ShowTwoNumbers {
         strNotification += strNum2;
 
         JOptionPane.showMessageDialog(null, strNotification,
-                    "Show two numbers", JOptionPane.INFORMATION_MESSAGE);
+                    "Bao Phuc - Show two numbers", JOptionPane.INFORMATION_MESSAGE);
         System.exit(0);
     }
 }
