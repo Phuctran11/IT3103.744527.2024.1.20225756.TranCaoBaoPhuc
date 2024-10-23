@@ -1,3 +1,4 @@
+package Programs;
 //Example 2: FirstDialog.java
 import javax.swing.JOptionPane;
 public class FirstDialog{

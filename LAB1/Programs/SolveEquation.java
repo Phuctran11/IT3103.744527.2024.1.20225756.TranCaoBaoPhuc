@@ -1,3 +1,4 @@
+package Programs;
 import java.util.Scanner;
 public class SolveEquation {
 	@SuppressWarnings("resource")
