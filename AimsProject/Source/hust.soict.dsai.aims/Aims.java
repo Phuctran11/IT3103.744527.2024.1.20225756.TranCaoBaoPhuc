@@ -27,9 +27,9 @@ public class Aims {
 				"Comedy", "BaoPhuc", 22.22f);
 
 		DigitalVideoDisc[] dvdList ={dvd5, dvd6, dvd7};
-		// anOrder.addDigitalVideoDisc(dvdList); //overloading
+		anOrder.addDigitalVideoDisc(dvdList); //overloading
 
-		// anOrder.addDigitalVideoDisc(dvd1, dvd2); //Truyền 2 tham số
+		anOrder.addDigitalVideoDisc(dvd1, dvd2); //Truyền 2 tham số
 		
 		// anOrder.addDigitalVideoDisc(dvd1, dvd2, dvd3, dvd4, dvd5, dvd6, dvd7); //Truyền nhiều tham số
 

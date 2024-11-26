@@ -15,6 +15,51 @@ public class Cart {
             System.out.println("BaoPhuc-The cart is almost full.");
         }
     }
+    public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList){
+        for(DigitalVideoDisc dvd : dvdList){
+            if (qtyOrdered < MAX_NUMBERS_ORDERED){
+                itemOrdered[qtyOrdered] = dvd;
+                qtyOrdered++;
+                System.out.println("BaoPhuc - The disc has the id "+ dvd.getId() +" has been added: " + dvd.getTitle());
+            } else{
+                System.out.println("BaoPhuc - The cart is almost full.");
+                break;
+            }
+        }
+    }
+
+    //phương thức truyền 2 tham số
+    public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2){
+        if (qtyOrdered < MAX_NUMBERS_ORDERED){
+            itemOrdered[qtyOrdered] = dvd1;
+            qtyOrdered++;
+            System.out.println("BaoPhuc - The disc "+ qtyOrdered +"th has been added: " + dvd1.getTitle());
+        } else{
+            System.out.println("BaoPhuc - The cart is almost full.");
+        }
+        if (qtyOrdered < MAX_NUMBERS_ORDERED){
+            itemOrdered[qtyOrdered] = dvd2;
+            qtyOrdered++;
+            System.out.println("BaoPhuc - The disc "+ qtyOrdered +"th has been added: " + dvd2.getTitle());
+        } else{
+            System.out.println("BaoPhuc - The cart is almost full.");
+        }
+    }
+
+    //Phương thức truyền nhiều tham số
+
+    // public void addDigitalVideoDisc(DigitalVideoDisc... discs) {
+    //     for (DigitalVideoDisc disc : discs) {
+    //         if (qtyOrdered < MAX_NUMBERS_ORDERED) {
+    //             itemOrdered[qtyOrdered] = disc;
+    //             qtyOrdered++;
+    //             System.out.println("BaoPhuc-The disc has been added: " + disc.getTitle());
+    //         } else {
+    //             System.out.println("BaoPhuc-The cart is almost full.");
+    //             break;
+    //         }
+    //     }
+    // }
     
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
         boolean found = false;
