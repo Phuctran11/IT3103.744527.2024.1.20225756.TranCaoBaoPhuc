@@ -19,5 +19,9 @@ public class CartTest {
 	cart.addDigitalVideoDisc(dvd4);
 
     cart.print();
+    cart.searchDVD("BaoPhuc-The Lion King");
+    cart.searchDVD("BaoPhuc-Two broke girls");
+    cart.searchDVD(2);
+    cart.searchDVD(5);
     }
 }
