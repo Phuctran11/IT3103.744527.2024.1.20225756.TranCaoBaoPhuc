@@ -1,5 +1,4 @@
 
-
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 10;
 	private int qtyOrdered = 0;
@@ -60,7 +59,7 @@ public class Cart {
     //         }
     //     }
     // }
-    
+
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
         boolean found = false;
         for (int i = 0; i < qtyOrdered; i++) {
