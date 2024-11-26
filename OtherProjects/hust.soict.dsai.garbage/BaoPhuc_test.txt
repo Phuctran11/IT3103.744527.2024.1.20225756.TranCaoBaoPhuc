@@ -1,0 +1,42 @@
+Elon Musk hiện cấy chip giao diện não - máy tính để hỗ trợ người liệt, nhưng mục tiêu lâu dài của ông là hợp nhất con người với AI.
+
+"Thiết bị cấy ghép hoạt động như một phương tiện tăng cường bộ não của chính bạn, mang lại cho con người tùy chọn cộng sinh với trí tuệ nhân tạo", Elon Musk nói tại sự kiện của Neuralink tháng 7/2019. "Ý tưởng ở đây là tạo ra một tương lai phù hợp nhằm giảm thiểu mối đe dọa hiện hữu của AI".
+
+Theo VOX, đây là tuyên bố quan trọng của tỷ phú Mỹ, cho thấy ông đồng sáng lập Neuralink không chỉ nhằm mục đích hỗ trợ bệnh nhân bị liệt hay không thể vận động, mà muốn Neuralink làm điều gì đó lớn lao hơn.
+
+"Musk rất thành thạo trong việc tạo dựng danh tiếng cho công ty, nhưng cũng tạo ra những thứ phi thường không phải ai cũng làm được", Anne Vanhoestenberghe, giáo sư về thiết bị y tế cấy ghép tích cực tại trường King's College London, nói với Telegraph.
+
+Tầm nhìn của Elon Musk
+Neuralink được Musk đồng sáng lập năm 2016 cùng 7 thành viên khác. Ở một số sự kiện, ông chủ yếu nhấn mạnh tham vọng hợp nhất con người với máy móc.
+
+"Theo thời gian, tôi nghĩ chúng ta có thể sẽ thấy sự kết hợp chặt chẽ hơn giữa trí tuệ sinh học và trí tuệ kỹ thuật số", ông nói tại World Government Summit vào tháng 2/2017 ở Dubai. "Chủ yếu là về băng thông, tốc độ kết nối giữa bộ não của bạn và phiên bản kỹ thuật số của chính bạn, đặc biệt là đầu ra".
+
+Musk khi đó hình dung giao diện não - máy tính có thể giao tiếp với tốc độ "một nghìn tỷ bit mỗi giây". Trong khi đó, con người bị giới hạn bởi các phương thức giao tiếp như nói hoặc ký hiệu với mức 10 bit mỗi giây. "Một số giao diện băng thông cao tới não sẽ là thứ giúp đạt được sự cộng sinh giữa trí thông minh của con người và máy móc, đồng thời có thể giải quyết vấn đề kiểm soát của AI", Musk nói với CNBC năm 2017.
+
+Người được cấy máy móc vào não đầu tiên được thế giới công nhận là Neil Harbisson, khi chấp nhận đưa một ăng-ten vào hộp sọ năm 2004. Hệ thống này gửi tín hiệu như bức xạ điện từ, cuộc gọi điện thoại, video hoặc hình ảnh được chuyển thành rung động có thể nghe được. Ăng-ten hỗ trợ kết nối wifi cũng giúp Harbisson nhận tín hiệu và dữ liệu từ vệ tinh. Musk không đề cập đến Harbisson, nhưng theo Dezeen, các phát biểu của tỷ phú cho thấy ông muốn làm điều lớn hơn và Neuralink ra đời để hiện thực hóa tham vọng đó.
+
+Chip não của Neuralink có gì?
+Theo thông tin trên website của Neuralink, hệ thống chip não - máy tính được phân bổ trên 96 nhóm sợi, mỗi nhóm có thể chứa tới 3.072 điện cực. Mỗi sợi nhỏ hơn 1/10 kích thước sợi tóc và chứa 192 điện cực. Mỗi nhóm điện cực được bọc trong một thiết bị cấy ghép nhỏ chứa chip không dây tùy chỉnh, có kích thước 4 x 4 mm. Các sợi được đưa riêng lẻ vào não "với độ chính xác micron" bằng một cây kim nhỏ ở đầu robot, đường kính 24 micron.
+
+
+Mô tả hệ thống chip não của Neuralink. (Video: TechRadar/Neuralink).
+
+Còn theo Ashlee Vance, tác giả cuốn tiểu sử đầu tiên của Musk năm 2015, bộ phận chip siêu mỏng của Neuralink hiện được thu gọn gồm khoảng 64 nhóm sợi. Các sợi mỏng đến mức chỉ bằng 1/14 chiều rộng của một sợi tóc người. Khi gắn chip não, bác sĩ cần vài giờ để thực hiện ca phẫu thuật cắt hộp sọ, sau đó cần 25 phút để robot đưa thiết bị vào.
+
+Bộ cấy hoạt động bằng cách ghi lại thông tin phát từ các tế bào thần kinh trong não. Các tế bào thần kinh của não kết nối tạo thành một mạng lưới lớn thông qua các khớp thần kinh. Tại các điểm kết nối này, các tế bào thần kinh giao tiếp với nhau qua tín hiệu hóa học gọi là chất dẫn truyền thần kinh, được giải phóng để đáp ứng với một xung điện gọi là "điện thế hoạt động".
+
+Khi một tế bào nhận đủ loại chất dẫn truyền thần kinh phù hợp, phản ứng dây chuyền sẽ được kích hoạt gây ra "điện thế hoạt động" khi các tế bào thần kinh chuyển tiếp thông điệp đến các khớp thần kinh. Những điện thế này sau đó tạo ra một điện trường lan truyền từ tế bào thần kinh và có thể được phát hiện bằng cách đặt các điện cực gần đó, cho phép ghi lại thông tin được biểu thị bởi tế bào thần kinh. Tại sự kiện năm 2019 của Neuralink, Musk cho biết có thể cấy tới 10 thiết bị cấy ghép vào một bán cầu não.
+
+Thời gian qua, Neuralink đã tìm kiếm tình nguyện viên. Ngày 19/9/2023, công ty được phép thử nghiệm cấy chip lên người bại liệt. Theo Vance, hàng nghìn người đã đăng ký tham gia thử nghiệm. Công ty sau đó đã chọn ra một người để tiến hành cấy chip não vào cuối tháng 1. Musk cho biết bệnh nhân hiện tiến triển tốt và di chuyển được chuột máy tính quanh màn hình thông qua suy nghĩ.
+
+"Cho phép kiểm soát điện thoại, máy tính và hầu hết mọi thiết bị chỉ bằng cách suy nghĩ", Musk viết trên X tháng trước. "Người dùng ban đầu sẽ là những người mất khả năng sử dụng tay chân. Hãy tưởng tượng Stephen Hawking có thể giao tiếp còn nhanh hơn người đánh máy. Đó là mục tiêu".
+Tại sao Musk muốn hợp nhất bộ não với AI?
+Theo VOX, Neuralink là câu trả lời cho nỗi sợ lớn: AI sẽ thống trị thế giới. Sự lo lắng này đang ngày càng lan rộng với viễn cảnh những cỗ máy thông minh sẽ có khả năng đánh lừa con người và giành quyền kiểm soát thế giới. Tháng 3 năm ngoái, hàng nghìn người, trong đó có Musk, cũng đã ký vào thư kêu gọi dừng phát triển các hệ thống AI mạnh hơn GPT-4 của OpenAI trong ít nhất sáu tháng.
+
+Musk không phải là người duy nhất đưa ra cảnh báo về AI, nhưng giới chuyên gia đánh giá tỷ phú Mỹ còn đang có hành động cụ thể để tránh rủi ro. Kế hoạch cơ bản của ông là: Nếu không thể đánh bại AI, hãy tham gia cùng chúng.
+
+Thực tế, theo quan điểm của Musk, một phần quan trọng là khả năng suy nghĩ và giao tiếp với tốc độ của AI. Musk được cho là vẫn bị ám ảnh bởi khái niệm băng thông - tốc độ mà máy tính có thể đọc thông tin từ não của con người. Đây cũng chính là ý tưởng khiến ông tăng cường đẩy nhanh tiến độ nghiên cứu đối với Neuralink. Thiết bị cấy ghép ban đầu của Neuralink được giới thiệu với 1.024 điện cực, còn hiện tại có hàng nghìn điện cực. Theo Independent, càng có nhiều điện cực, hệ thống càng "nghe" được nhiều tế bào thần kinh hơn, từ đó nhận càng nhiều dữ liệu. Đây cũng chính là điều mà Musk hướng đến trong việc cải thiện tốc độ dữ liệu não - máy tính.
+
+Theo Hirobumi Watanabe, người từng đứng đầu nhóm nghiên cứu nội mạch của Neuralink năm 2018, nỗi ám ảnh của công ty là tối đa hóa băng thông. "Mục tiêu của Neuralink là tạo nhiều điện cực hơn, nhiều băng thông hơn, để giao diện này có thể làm được nhiều điều hơn những gì các công nghệ khác có thể làm", Watanabe nói với VOX.
+
+Watanabe cũng cho biết tham vọng hợp nhất liền mạch với máy móc của Neuralink có thể cho phép con người làm mọi thứ và khả năng ghi nhớ mãi mãi. "Điều đó tạo nên sứ mệnh kép của công ty: tạo giao diện não - máy tính tổng quát để khôi phục quyền tự chủ cho những người bệnh hôm nay và giải phóng tiềm năng của con người vào ngày mai", Watanabe chia sẻ.
