@@ -71,7 +71,4 @@ public class DigitalVideoDisc {
         this.title = title;
     }
 
-	public boolean isMatch(String title){
-		return this.title.equals(title);
-	}
 }
