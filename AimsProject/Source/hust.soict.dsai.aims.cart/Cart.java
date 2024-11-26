@@ -93,35 +93,7 @@ public class Cart {
         }
         System.out.println("BaoPhuc - Total Cost: " + totalCost());
     }
-    //phương thức tìm kiếm DVD theo id 
-    public void searchDVD(int id){
-        int found = 0;
-        for (int i =0; i<qtyOrdered; i++){
-            if (this.itemOrdered[i].getId() == id){
-                found = i+1;
-            }
-        }
-        if (found == 0){
-            System.out.println("BaoPhuc - DVD not found!");
-        } else {
-            System.out.println("BaoPhuc - DVD founded has the title: " + itemOrdered[found-1].getTitle());
-        }
-    }
-    //phương thức tìm kiếm DVD theo title
-    public void searchDVD(String title){
-        int found  = 0;
-        for (int i=0; i<qtyOrdered; i++){
-            if (itemOrdered[i].isMatch(title)){
-                found = i+1;
-                break;
-            }
-        }
-        if (found == 0){
-            System.out.println("BaoPhuc - DVD not found!");
-        } else {
-            System.out.println("BaoPhuc - DVD founded has the id: " + itemOrdered[found-1].getId());
-        }
-    }
+    
     
     public float totalCost() {
         float total = 0;
