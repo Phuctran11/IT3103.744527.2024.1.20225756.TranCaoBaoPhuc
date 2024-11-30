@@ -1,35 +1,68 @@
+package hust.soict.dsai.aims.store;
+import hust.soict.dsai.aims.media.Media;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Store {
-    private static final int MAX_NUMBERS_IN_STORE = 100; 
-    private DigitalVideoDisc[] itemsInStore = new DigitalVideoDisc[MAX_NUMBERS_IN_STORE];
-    private int qtyInStore = 0;
-
-    public void addDVD(DigitalVideoDisc dvd) {
-        if (qtyInStore < MAX_NUMBERS_IN_STORE) {
-            itemsInStore[qtyInStore] = dvd;
-            qtyInStore++;
-            System.out.println("BaoPhuc-DVD '" + dvd.getTitle() + "' has been added to the store.");
-        } else {
-            System.out.println("BaoPhuc-The store is full. Cannot add more DVDs.");
-        }
+	//attributes
+    private List<Media> itemsInStore = new ArrayList<Media>();
+    public Store() {
+    	
     }
-
-    public void removeDVD(DigitalVideoDisc dvd) {
-        boolean found = false;
-        for (int i = 0; i < qtyInStore; i++) {
-            if (itemsInStore[i].getId() == dvd.getId()) {
-                found = true;
-                // Dịch chuyển các DVD sau DVD cần xóa lên một vị trí
-                for (int j = i; j < qtyInStore - 1; j++) {
-                    itemsInStore[j] = itemsInStore[j + 1];
-                }
-                itemsInStore[qtyInStore - 1] = null; // Xóa đối tượng thừa
-                qtyInStore--;
-                System.out.println("BaoPhuc-DVD '" + dvd.getTitle() + "' has been removed from the store.");
-                break;
-            }
+    //method to add new Media into Store
+    public void addMedia(Media media) {
+        itemsInStore.add(media);
+        System.out.println("BaoPhuc-Add the meida successfully!");
+    }
+    //method to remove the media from store
+    public void removeMedia(Media media) {
+        int found = itemsInStore.indexOf(media);
+        
+        if ( found >= 0) {
+        	itemsInStore.remove(found);
+        	System.out.println("BaoPhuc-Remove the media successfully!");
+        } else {
+        	System.out.print("BaoPhuc-Can not found to remove the media in Store!");
         }
-        if (!found) {
-            System.out.println("BaoPhuc-DVD '" + dvd.getTitle() + "' was not found in the store.");
+    }  
+    //getter and setter for media
+    public List<Media> getItemsInStore(){
+    	return itemsInStore;
+    }
+    public void setItemsInStore(List<Media> itemsInStore) {
+    	this.itemsInStore = itemsInStore;
+    }
+    //method to print
+    public void print(){
+        System.out.println("***********************ITEMS IN STORE***********************");
+        for (Media media : itemsInStore) {
+        	media.print();
         }
+        System.out.println("************************************************************");
+    }
+    //method to search items in store by id and title
+    public void searchItemsById(int id) {
+    	boolean found = false;
+    	for (Media media : itemsInStore) {
+    		if(media.getId() == id) {
+    			found = true;
+    			media.print();
+    		}
+    	}
+    	if (found == false) {
+    		System.out.println("BaoPhuc-Not found the items!");
+    	}
+    }
+    public void searchItemsByTitle(String title) {
+    	boolean found = false;
+    	for (Media media : itemsInStore) {
+    		if(media.getTitle().equalsIgnoreCase(title)) {
+    			found = true;
+    			media.print();
+    		}
+    	}
+    	if (found == false) {
+    		System.out.println("BaoPhuc-Not found the items!");
+    	}
     }
 }
