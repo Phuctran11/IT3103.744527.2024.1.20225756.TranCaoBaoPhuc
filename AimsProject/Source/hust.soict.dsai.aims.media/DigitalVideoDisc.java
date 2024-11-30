@@ -1,7 +1,5 @@
 package hust.soict.dsai.aims.media;
 
-import java.util.Comparator;
-
 public class DigitalVideoDisc extends Media {
     //attributes
     private String director;
