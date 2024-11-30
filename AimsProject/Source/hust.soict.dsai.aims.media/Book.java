@@ -7,22 +7,14 @@ public class Book extends Media{
     //chỉ cần tạo thuộc tính list tác giả do đã kế thừa lớp Media
     private List<String> authors = new ArrayList<String>();
     
-    public Book(){
-        super();
-    }
-    public Book(int id){
-        super(id);
-    }
     public Book(int id, String title){
         super(id, title);
-    }  
-    public Book(int id, String title, String category){
-        super(id, title, category);
     }
 
     public Book(int id, String title, String category, float cost){
         super(id, title, category, cost);
     }
+
     //adding new author method
     //if the new author is already in the list, return false; otherwise add the news and display success message
     public void addAuthor(String authorName){

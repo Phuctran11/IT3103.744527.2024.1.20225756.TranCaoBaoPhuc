@@ -1,7 +1,5 @@
 package hust.soict.dsai.aims.media;
 
-import java.util.Comparator;
-
 
 public abstract class Media{
     //attributes
@@ -52,9 +50,11 @@ public abstract class Media{
         this.cost = cost;
     }
 
-    @Override
-    public String toString(){
-        return "BaoPhuc-Media: " + title + " - " + category + " - " + cost;
+    
+    public void print(){
+        System.out.println("BaoPhuc-Media: " + getTitle() 
+        					+ " - " + getCategory() 
+        					+ " - " + getCost() + "$");
     }
 
 
