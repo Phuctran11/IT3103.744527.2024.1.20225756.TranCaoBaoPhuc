@@ -1,42 +1,36 @@
 package hust.soict.dsai.aims.media;
 
-public class DigitalVideoDisc extends Media {
-    //attributes
-    private String director;
-    private int length;
+public class DigitalVideoDisc extends Disc {
+    //attributes extends Disc
 
     //constructors
-    public DigitalVideoDisc(int id, String title, String category, String director, int length, float cost) {
-        super(id, title, category, cost);
-        this.director = director;
-        this.length = length;
+	public DigitalVideoDisc(int id, String title) {
+		super(id, title);
+	}
+    public DigitalVideoDisc(int id, String title, String category, float cost, String director, int length) {
+        this(id, title, category, cost);
+        this.setDirector(director);
     }
-
-    public DigitalVideoDisc(int id, String title, String category, String director, float cost) {
-        super(id, title, category, cost);
-        this.director = director;
-    }
-
     public DigitalVideoDisc(int id, String title, String category, float cost) {
-        super(id, title, category, cost);
+    	this(id, title);
+    	this.setCategory(category);
+    	this.setCost(cost);
     }
-
-    public DigitalVideoDisc(int id,String title) {
-        super(id, title);
+    public DigitalVideoDisc(int id, String title, String category, String director, int length, float cost) {
+    	this(id, title, category, cost);
+    	this.setDirector(director);
+    	this.setLength(length);
     }
-    //getter and setter for director
-    public String getDirector() {
-        return director;
+    //method to print details of DVD
+    @Override
+    public void print() {
+    	System.out.println(getId() + "BaoPhuc-DVD"
+    						+ "-" + getTitle()
+    						+ "-" + getCategory()
+    						+ "-" + getDirector()
+    						+ "-" + getLength()
+    						+ "-" + getCost() + "$");
+    	
     }
-    public void setDirector(String director) {
-        this.director = director;
-    }
-    //`getter and setter for length
-    public int getLength() {
-        return length;
-    }
-    public void setLength(int length) {
-        this.length = length;
-    }
-
+    
 }
