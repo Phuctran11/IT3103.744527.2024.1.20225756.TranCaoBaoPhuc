@@ -3,7 +3,7 @@ package hust.soict.dsai.aims.media;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompactDisc extends Disc {
+public class CompactDisc extends Disc implements Playable {
 	//attributes
 	private String artist;
 	private List<Track> tracks = new ArrayList<Track>();
@@ -55,4 +55,14 @@ public class CompactDisc extends Disc {
 		setLength(length);
 		return length;
 	}
+
+	//method to print CD and its tracks
+	public void print() {
+		System.out.println("BaoPhuc-Playing CD: " + this.getTitle());
+		System.out.println("BaoPhuc-CD artist: " + getArtist());
+		System.out.println("BaoPhuc-CD length: " + this.getLength());
+		for( Track track : tracks) {
+			track.play();
+		}
+	}	
 }

@@ -1,6 +1,6 @@
 package hust.soict.dsai.aims.media;
 
-public class DigitalVideoDisc extends Disc {
+public class DigitalVideoDisc extends Disc implements Playable {
     //attributes extends Disc
 
     //constructors
@@ -32,5 +32,9 @@ public class DigitalVideoDisc extends Disc {
     						+ "-" + getCost() + "$");
     	
     }
-    
+    //method to play a DVD
+    public void play() {
+    	System.out.println("BaoPhuc-Playing DVD: " + this.getTitle());
+    	System.out.println("BaoPhuc-DVD's length: " + this.getLength());
+    }
 }
