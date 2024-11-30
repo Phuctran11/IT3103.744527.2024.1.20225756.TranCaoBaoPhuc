@@ -1,5 +1,4 @@
-package aims;
-
+package hust.soict.dsai.aims.media;
 
 public abstract class Media{
     //attributes
