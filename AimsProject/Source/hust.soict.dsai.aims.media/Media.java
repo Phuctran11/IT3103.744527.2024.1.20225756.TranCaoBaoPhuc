@@ -1,4 +1,4 @@
-package hust.soict.dsai.aims.media;
+package aims;
 
 
 public abstract class Media{
@@ -49,13 +49,15 @@ public abstract class Media{
     public void setCost(float cost){
         this.cost = cost;
     }
-
-    
+    //method to print
     public void print(){
         System.out.println("BaoPhuc-Media: " + getTitle() 
         					+ " - " + getCategory() 
         					+ " - " + getCost() + "$");
     }
-
+    //method to check if is right title
+    public boolean isMatch(String title) {
+    	return getTitle() == title;
+    }
 
 }
