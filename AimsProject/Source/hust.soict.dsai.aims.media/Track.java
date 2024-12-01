@@ -31,4 +31,10 @@ public class Track implements Playable {
 		System.out.println("BaoPhuc-Playing track: " + this.getTitle());
 		System.out.println("BaoPhuc-Track length: " + this.getLength());
 	}
+	//method to check identical objects
+	public boolean equals(Object o) {
+		Track track = (Track) o;
+		return track.getTitle().equals(this.getTitle()) 
+				&& track.getLength() == this.getLength();
+	}
 }
