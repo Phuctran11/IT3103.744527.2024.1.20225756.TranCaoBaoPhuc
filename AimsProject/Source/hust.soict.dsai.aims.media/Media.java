@@ -58,5 +58,14 @@ public abstract class Media{
     public boolean isMatch(String title) {
     	return getTitle() == title;
     }
-
+    //method to check identical objects
+    public boolean equals(Object o) {
+    	Media media = (Media) o;
+    	try {
+    		String title = media.getTitle();
+    		return title.equals(this.getTitle());
+    	} catch (NullPointerException e) {
+    		return false;
+    	}
+    }
 }
