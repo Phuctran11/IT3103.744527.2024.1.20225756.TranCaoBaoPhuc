@@ -68,4 +68,13 @@ public abstract class Media{
     		return false;
     	}
     }
+    //method toString- polymorphism 
+    public String toString(){
+        return "BaoPhuc-Media{" +
+                "id= "+ id +
+                ", title= " + title +
+                ", category= " + category+
+                ", cost= " + cost +
+                "}";
+     }
 }
