@@ -1,6 +1,8 @@
 package hust.soict.dsai.aims.cart;
 import hust.soict.dsai.aims.media.Media;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 public class Cart {
@@ -73,6 +75,45 @@ public class Cart {
 			System.out.println("BaoPhuc-Not found the media!");
 		}
 	}
+	//method to sort media by title
+	public void sortMediaByTitle() {
+		Collections.sort((List<Media>)itemOrdered, Media.COMPARE_BY_TITILE_COST);
+		Iterator<Media> iterator = itemOrdered.iterator();
+		iterator = itemOrdered.iterator();
+		
+		while(iterator.hasNext()) {
+			System.out.println(((Media)iterator.next()).toString());
+		}
+	}
+	//method to sort media by cost
+	public void sortMediaByCost() {
+        Collections.sort((List<Media>)itemOrdered, Media.COMPARE_BY_COST_TITILE);
+        Iterator<Media> iterator = itemOrdered.iterator();
+        iterator = itemOrdered.iterator();
+    
+        while (iterator.hasNext()) {
+            System.out.println(((Media)iterator.next()).toString());
+        }
+    }
+	//method search to remove
+	public Media searchToRemove(String title) {
+		for (Media media : itemOrdered) {
+			if (media.getTitle().equals(title)) {
+				return media;
+			}
+		}
+		return null;
+	}
+	//method to place order
+	public void empty() {
+        if (itemOrdered.size() == 0) {
+            System.out.println("BP-Nothing to remove!");
+        } else {
+            itemOrdered.clear();
+            System.out.println("BP-Order created.");
+            System.out.println();
+        }
+    }
 	
 	
 }
