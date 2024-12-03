@@ -60,6 +60,10 @@ public abstract class Media{
     public boolean isMatch(String title) {
     	return getTitle() == title;
     }
+    //method to play
+    public void play() {
+        System.out.println("BaoPhuc-Playing media " +getTitle());
+    }
     //method to check identical objects
     public boolean equals(Object o) {
     	Media media = (Media) o;

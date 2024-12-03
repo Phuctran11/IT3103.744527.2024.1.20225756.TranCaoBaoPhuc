@@ -41,28 +41,20 @@ public class Store {
         System.out.println("************************************************************");
     }
     //method to search items in store by id and title
-    public void searchItemsById(int id) {
-    	boolean found = false;
+    public Media searchItemsById(int id) {
     	for (Media media : itemsInStore) {
     		if(media.getId() == id) {
-    			found = true;
-    			media.print();
+    			return media;
     		}
     	}
-    	if (found == false) {
-    		System.out.println("BaoPhuc-Not found the items!");
-    	}
+    	return null;
     }
-    public void searchItemsByTitle(String title) {
-    	boolean found = false;
+    public Media searchItemsByTitle(String title) {
     	for (Media media : itemsInStore) {
     		if(media.getTitle().equalsIgnoreCase(title)) {
-    			found = true;
-    			media.print();
+    			return media;
     		}
     	}
-    	if (found == false) {
-    		System.out.println("BaoPhuc-Not found the items!");
-    	}
+    	return null;
     }
 }
