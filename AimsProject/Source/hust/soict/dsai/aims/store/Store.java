@@ -11,9 +11,13 @@ public class Store {
     }
     //method to add new Media into Store
     public void addMedia(Media media) {
-        itemsInStore.add(media);
+		if (itemsInStore.contains(media)) {
+            System.out.println("BaoPhuc-" + media.getTitle() + " is already in the cart!");
+        } else {
+            itemsInStore.add(media);
         System.out.println("BaoPhuc-Add the meida successfully!");
-    }
+        }
+	}
     //method to remove the media from store
     public void removeMedia(Media media) {
         int found = itemsInStore.indexOf(media);

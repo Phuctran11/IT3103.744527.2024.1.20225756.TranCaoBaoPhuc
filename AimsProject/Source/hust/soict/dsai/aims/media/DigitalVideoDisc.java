@@ -24,7 +24,7 @@ public class DigitalVideoDisc extends Disc implements Playable {
     //method to print details of DVD
     @Override
     public void print() {
-    	System.out.println(getId() + "BaoPhuc-DVD"
+    	System.out.println(getId() + " BaoPhuc-DVD"
     						+ "-" + getTitle()
     						+ "-" + getCategory()
     						+ "-" + getDirector()
