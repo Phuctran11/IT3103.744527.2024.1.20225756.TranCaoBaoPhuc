@@ -2,7 +2,16 @@ package hust.soict.dsai.aims.media;
 
 import java.util.Comparator;
 
-public abstract class Media{
+public abstract class Media implements Comparable<Media>{
+    @Override
+    public int compareTo(Media media) {
+        //compare by title
+        int titleComparison =  this.getTitle().compareTo(media.getTitle());
+
+        //if title is the same, compare by cost
+        return (titleComparison == 0) ? Float.compare(this.getCost(), media.getCost()) : titleComparison;
+
+    }
     //attributes
     private int id;
     private String title;
