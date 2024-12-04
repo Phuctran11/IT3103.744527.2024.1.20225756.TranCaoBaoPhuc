@@ -58,7 +58,7 @@ public abstract class Media{
     }
     //method to check if is right title
     public boolean isMatch(String title) {
-    	return getTitle() == title;
+    	return getTitle().toLowerCase().contains(title.toLowerCase());
     }
     //method to play
     public void play() {

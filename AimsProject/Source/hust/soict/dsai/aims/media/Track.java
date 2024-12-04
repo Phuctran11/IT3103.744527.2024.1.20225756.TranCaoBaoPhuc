@@ -28,6 +28,7 @@ public class Track implements Playable {
 	}
     //method to play the track
 	public void play() {
+		System.out.println("BP-Tracks:");
 		System.out.println("BaoPhuc-Playing track: " + this.getTitle());
 		System.out.println("BaoPhuc-Track length: " + this.getLength());
 	}

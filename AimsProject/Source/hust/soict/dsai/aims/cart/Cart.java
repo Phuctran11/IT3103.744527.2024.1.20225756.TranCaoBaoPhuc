@@ -14,8 +14,12 @@ public class Cart {
 	}
 	//method to add a new media 
 	public void addMedia(Media media) {
-		itemOrdered.add(media);
-		System.out.println("BaoPhuc-Add the new media successfully!");
+		if (itemOrdered.contains(media)) {
+            System.out.println("BaoPhuc-" + media.getTitle() + " is already in the cart!");
+        } else {
+            itemOrdered.add(media);
+            System.out.println("BaoPhuc-Add the new media " + media.getTitle() + " successfully!");
+        }
 	}
 	
 	//method to remove media 

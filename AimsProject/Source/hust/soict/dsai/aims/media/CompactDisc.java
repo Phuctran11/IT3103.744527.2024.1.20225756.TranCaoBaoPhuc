@@ -58,11 +58,22 @@ public class CompactDisc extends Disc implements Playable {
 
 	//method to print CD and its tracks
 	public void print() {
-		System.out.println("BaoPhuc-Playing CD: " + this.getTitle());
-		System.out.println("BaoPhuc-CD artist: " + getArtist());
-		System.out.println("BaoPhuc-CD length: " + this.getLength());
+		System.out.println(getId() + " BaoPhuc-CD-" + this.getTitle()
+							+ "-" + this.getCategory()
+							+ "-" + this.getCost() 
+							+ "-" + getDirector()
+							+ "-" + this.getLength()
+							+ "-" + getArtist());
+	}
+
+	@Override
+	public void play() {
+		System.out.println(getId() + " BaoPhuc-Playing CD: " + this.getTitle());
+		System.out.println("  BaoPhuc-CD artist: " + getArtist());
+		System.out.println("  BaoPhuc-CD length: " + this.getLength());
 		for( Track track : tracks) {
 			track.play();
 		}
-	}	
+		
+	}
 }

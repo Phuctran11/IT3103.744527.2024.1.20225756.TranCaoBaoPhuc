@@ -50,7 +50,7 @@ public class Book extends Media{
     //Printing the list of authors method
     @Override
     public void print(){
-        System.out.println(getId() + " BaoPhuc-Book "+
+        System.out.print(getId() + " BaoPhuc-Book "+
                             getTitle() + " - "+
                             getCategory() + " - ");
         for(String author: authors){
