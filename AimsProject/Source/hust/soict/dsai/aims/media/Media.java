@@ -73,6 +73,10 @@ public abstract class Media implements Comparable<Media>{
     public void play() {
         System.out.println("BaoPhuc-Playing media " +getTitle());
     }
+    //method to play GUI
+    public String playGUI() {
+        return "BaoPhuc-Playing media " +getTitle();
+    }
     //method to check identical objects
     public boolean equals(Object o) {
     	Media media = (Media) o;
