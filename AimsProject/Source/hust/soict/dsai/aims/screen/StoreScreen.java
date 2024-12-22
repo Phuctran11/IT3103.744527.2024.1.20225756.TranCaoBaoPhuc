@@ -1,103 +1,296 @@
 package hust.soict.dsai.aims.screen;
-import hust.soict.dsai.aims.store.*;
-import hust.soict.dsai.aims.media.*;
-import javax.swing.*;
-import java.awt.*;
-import java.util.ArrayList;
 
-public class StoreScreen extends JFrame{
-    private Store store;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import aims.Aims;
+import store.Store;
+import javafx.collections.FXCollections;
+import javafx.collections.transformation.FilteredList;
+import media.*;
 
-    public void Storescreen(Store store){
-        this.store = store;
-        Container cp = getContentPane();
-        cp.setLayout(new BorderLayout());
+public class StoreScreen extends JFrame {
 
-        cp.add(createNorth(), BorderLayout.NORTH);
-        cp.add(createCenter(), BorderLayout.CENTER);
+  private Store store;
+  private JPanel center;
 
-        setTitle("Store");
-        setSize(1024,768);
-        setVisible(true);
-    }
+  public StoreScreen(Store store) {
+      this.store = store;
 
-    JPanel createNorth(){
-        JPanel north = new JPanel();
-        north.setLayout(new BoxLayout(north , BoxLayout.Y_AXIS));
-        north.add(createMenuBar());
-        north.add(createHeader());
-        return north;
+      Container cp = getContentPane();
+      cp.setLayout(new BorderLayout());
 
-    }
+      cp.add(createNorth(), BorderLayout.NORTH);
+      cp.add(center = createCenter(store.getItemsInStore()), BorderLayout.CENTER);
 
-    JMenuBar createMenuBar(){
-        JMenu menu = new JMenu("BP-Options");
+      setVisible(true);
+      setTitle("Store");
+      setBounds(100, 0, 1024, 768);
+  }
 
-        JMenu smUpdateStore = new JMenu("BP-Update store");
-        smUpdateStore.add(new JMenuItem("BP-Add Book"));
-        smUpdateStore.add(new JMenuItem("BP-Add CD"));
-        smUpdateStore.add(new JMenuItem("BP-Add DVD"));
+  JPanel createNorth() {
+      JPanel north = new JPanel();
+      north.setLayout(new BoxLayout(north, BoxLayout.Y_AXIS));
+      north.add(createMenuBar());
+      north.add(createHeader());
+      return north;
+  }
 
-        menu.add( smUpdateStore);
-        menu.add(new JMenuItem("BP-View store"));
-        menu.add(new JMenuItem("BP-View cart"));
+  JMenuBar createMenuBar() {
+      JMenu menu = new JMenu("Options");
+      JMenu smUpdateStore = new JMenu("Update Store");
+      JMenuItem item;
+      smUpdateStore.add(item = new JMenuItem("Add Book"));
+      item.addActionListener(new MenuListener());
+      smUpdateStore.add(item = new JMenuItem("Add CD"));
+      item.addActionListener(new MenuListener());
+      smUpdateStore.add(item = new JMenuItem("Add DVD"));
+      item.addActionListener(new MenuListener());
+      menu.add(smUpdateStore);
+      menu.add(new JMenuItem("View store"));
+      menu.add(item = new JMenuItem("View cart"));
+      item.addActionListener(new MenuListener());
+      JMenuBar menuBar = new JMenuBar();
+      menuBar.setLayout(new FlowLayout(FlowLayout.LEFT));
+      menuBar.add(menu);
+      return menuBar;
+  }
 
-        JMenuBar menuBar = new JMenuBar();
-        menuBar.setLayout(new FlowLayout(FlowLayout.LEFT));
-        menuBar.add(menu);
+  JPanel createHeader() {
+      JPanel header = new JPanel();
+      header.setLayout(new BoxLayout(header, BoxLayout.X_AXIS));
 
-        return menuBar;
+      JLabel title = new JLabel("AIMS");
+      title.setFont(new Font(title.getFont().getName(), Font.PLAIN, 50));
+      title.setForeground(Color.CYAN);
 
-    }
+      JButton cart = new JButton("View cart");
+      cart.setPreferredSize(new Dimension(100, 50));
+      cart.setMaximumSize(new Dimension(100, 50));
+      cart.addActionListener(new MenuListener());
 
-    JPanel createHeader(){
-        JPanel header = new JPanel();
-        header.setLayout(new BoxLayout(header, BoxLayout.X_AXIS));
+      header.add(Box.createRigidArea(new Dimension(10, 10)));
+      header.add(title);
+      header.add(Box.createRigidArea(new Dimension(225, 10)));
+      header.add(createSearchBar());
+      header.add(Box.createHorizontalGlue());
+      header.add(cart);
+      header.add(Box.createRigidArea(new Dimension(10, 10)));
 
-        JLabel title =  new JLabel("AIMS");
-        title.setFont(new Font(title.getFont().getName(), Font.PLAIN, 50));
-        title.setForeground(Color.CYAN);
+      return header;
+  }
 
-        JButton cart =  new JButton("BP-View cart");
-        cart.setPreferredSize(new Dimension(125, 50));
-        cart.setMaximumSize(new Dimension(100, 50));
+  JPanel createSearchBar() {
+      JPanel searchBar = new JPanel();
+      searchBar.setLayout(new BoxLayout(searchBar, BoxLayout.X_AXIS));
 
-        header.add(Box.createRigidArea(new Dimension(10,10)));
-        header.add(title);
-        header.add(Box.createHorizontalGlue());
-        header.add(cart);
-        header.add(Box.createRigidArea(new Dimension(10,10)));
+      JLabel lblSearch = new JLabel("Search: ");
+      lblSearch.setFont(new Font(lblSearch.getFont().getName(), Font.BOLD, 14));
+      searchBar.add(lblSearch);
 
-        return header;
-    }
+      JPanel panelRadioGroup = new JPanel();
+      panelRadioGroup.setLayout(new BoxLayout(panelRadioGroup, BoxLayout.Y_AXIS));
 
-    JPanel createCenter(){
-        JPanel center = new JPanel();
-        center.setLayout((new GridLayout(3,3,2,2)));
-        
-        ArrayList<Media> mediaInStore = (ArrayList<Media>) store.getItemsInStore();
-        for(int i=0; i<9; i++){
-            MediaStore cell = new MediaStore(mediaInStore.get(i));
-            center.add(cell);
-        }
+      JRadioButton btnByTitle = new JRadioButton("By Title", true);
+      JRadioButton btnByCategory = new JRadioButton("By Category");
+      JRadioButton btnByCost = new JRadioButton("By Cost");
 
-        return center;
-    }
-    public static void main(String[] args) {
-        Store store = new Store();
-        //add book
-        store.addMedia(new Book(1, "BP-Book1", "BP-Category1", 10.0f));
-        store.addMedia(new Book(2, "BP-Book2", "BP-Category2", 20.0f));
-        store.addMedia(new Book(3, "BP-Book3", "BP-Category3", 30.0f));
-        store.addMedia(new Book(4, "BP-Book4", "BP-Category4", 40.0f));
-        store.addMedia(new Book(5, "BP-Book5", "BP-Category5", 50.0f));
-        //add cd
-        store.addMedia(new CompactDisc(6, "BP-CD1", "BP-Category1", 10.0f, "BP-CD1-Director", 20, "BP-CD1-Artist"));
-        store.addMedia(new CompactDisc(7, "BP-CD2", "BP-Category2", 20.0f, "BP-CD2-Director", 30, "BP-CD2-Artist"));
-        //add dvd
-        store.addMedia(new DigitalVideoDisc(8, "BP-DVD1", "BP-Category1", 10.0f, "BP-DVD1-Director", 20));
-        store.addMedia(new DigitalVideoDisc(9, "BP-DVD2", "BP-Category2", 20.0f, "BP-DVD2-Director", 30));
+      ButtonGroup buttonGroup = new ButtonGroup();
+      buttonGroup.add(btnByTitle);
+      buttonGroup.add(btnByCategory);
+      buttonGroup.add(btnByCost);
 
-        new StoreScreen().Storescreen(store);
-    }
+      panelRadioGroup.add(btnByTitle);
+      panelRadioGroup.add(btnByCategory);
+      panelRadioGroup.add(btnByCost);
+      searchBar.add(Box.createRigidArea(new Dimension(10, 10)));
+      searchBar.add(panelRadioGroup);
+
+      JTextField textField = new JTextField(10);
+      textField.setMaximumSize(new Dimension(1000, 25));
+      searchBar.add(Box.createRigidArea(new Dimension(10, 10)));
+      searchBar.add(textField);
+
+      JPanel panelCostFromTo = new JPanel();
+      panelCostFromTo.setLayout(new BoxLayout(panelCostFromTo, BoxLayout.X_AXIS));
+      JLabel lblFrom = new JLabel("From  ");
+      JLabel lblTo = new JLabel("  to  ");
+      JTextField tfFrom = new JTextField();
+      tfFrom.setPreferredSize(new Dimension(10, 25));
+      tfFrom.setMaximumSize(new Dimension(5000, 25));
+      JTextField tfTo = new JTextField();
+      tfTo.setPreferredSize(new Dimension(10, 25));
+      tfTo.setMaximumSize(new Dimension(5000, 25));
+      panelCostFromTo.add(lblFrom);
+      panelCostFromTo.add(tfFrom);
+      panelCostFromTo.add(lblTo);
+      panelCostFromTo.add(tfTo);
+      searchBar.add(panelCostFromTo);
+      panelCostFromTo.setVisible(false);
+
+      ActionListener actionListener = new ActionListener() {
+
+          @Override
+          public void actionPerformed(ActionEvent e) {
+              if (btnByTitle.isSelected() || btnByCategory.isSelected()) {
+                  resetTextFields();
+                  textField.setVisible(true);
+                  panelCostFromTo.setVisible(false);
+              } else {
+                  resetTextFields();
+                  textField.setVisible(false);
+                  panelCostFromTo.setVisible(true);
+              }
+          }
+
+          void resetTextFields() {
+              textField.setText("");
+              tfFrom.setText("");
+              tfTo.setText("");
+          }
+      };
+
+      btnByTitle.addActionListener(actionListener);
+      btnByCategory.addActionListener(actionListener);
+      btnByCost.addActionListener(actionListener);
+
+      DocumentListener documentListener = new DocumentListener() {
+
+          @Override
+          public void removeUpdate(DocumentEvent e) {
+              changedUpdate(e);
+          }
+
+          @Override
+          public void insertUpdate(DocumentEvent e) {
+              changedUpdate(e);
+          }
+
+          @Override
+          public void changedUpdate(DocumentEvent e) {
+              if (btnByTitle.isSelected() || btnByCategory.isSelected()) {
+                  if (textField.getText().equals("")) {
+                      loadItemsToStore();
+                      return;
+                  }
+
+                  FilteredList<Media> filteredList = new FilteredList<>(
+                          FXCollections.observableArrayList(store.getItemsInStore()));
+                  if (btnByTitle.isSelected()) {
+                      filteredList.setPredicate((it) -> it.isMatch(textField.getText()));
+                  } else {
+                      filteredList.setPredicate(
+                              (it) -> it.getCategory().toLowerCase().startsWith(textField.getText().toLowerCase()));
+                  }
+
+                  loadItemsToStore(filteredList);
+              } else {
+                  if (tfFrom.getText().equals("") && tfTo.getText().equals("")) {
+                      loadItemsToStore();
+                      return;
+                  }
+
+                  FilteredList<Media> filteredList = new FilteredList<>(
+                          FXCollections.observableArrayList(store.getItemsInStore()));
+                  if (tfFrom.getText().equals("")) {
+                      filteredList.setPredicate((it) -> it.getCost() < Float.parseFloat(tfTo.getText()));
+                  } else if (tfTo.getText().equals("")) {
+                      filteredList.setPredicate((it) -> it.getCost() > Float.parseFloat(tfFrom.getText()));
+                  } else {
+                      filteredList.setPredicate((it) -> it.getCost() > Float.parseFloat(tfFrom.getText())
+                              && it.getCost() < Float.parseFloat(tfTo.getText()));
+                  }
+
+                  loadItemsToStore(filteredList);
+              }
+          }
+      };
+
+      textField.getDocument().addDocumentListener(documentListener);
+      tfFrom.getDocument().addDocumentListener(documentListener);
+      tfTo.getDocument().addDocumentListener(documentListener);
+
+      return searchBar;
+
+  }
+
+  JPanel createCenter(List<Media> itemList) {
+      JPanel center = new JPanel();
+
+      int itemsToShow = itemList.size() < 9 ? itemList.size() : 9;
+
+      if (itemsToShow == 0) {
+          center.setLayout(new BoxLayout(center, BoxLayout.Y_AXIS));
+
+          JLabel lblStoreEmpty = new JLabel("No item found.");
+          lblStoreEmpty.setAlignmentX(CENTER_ALIGNMENT);
+          lblStoreEmpty.setFont(new Font(lblStoreEmpty.getName(), Font.PLAIN, 20));
+
+          center.add(Box.createRigidArea(new Dimension(10, 200)));
+          center.add(lblStoreEmpty);
+          return center;
+      }
+
+      center.setLayout(new GridLayout(0, 3, 2, 2));
+
+      for (int i = 0; i < itemsToShow; i++) {
+          MediaStore cell = new MediaStore(itemList.get(i), this);
+          center.add(cell);
+      }
+
+      return center;
+  }
+
+  public void loadItemsToStore(List<Media> itemList) {
+      remove(center);
+      add(center = createCenter(itemList), BorderLayout.CENTER);
+      repaint();
+      revalidate();
+  }
+  public void loadItemsToStore() {
+      loadItemsToStore(store.getItemsInStore());
+  }
+  private class MenuListener implements ActionListener {
+
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          switch (e.getActionCommand()) {
+              case "Add Book":
+                  new AddBookToStoreScreen();
+                  break;
+              case "Add CD":
+                  new AddCompactDiscToStoreScreen();
+                  break;
+              case "Add DVD":
+                  new AddDigitalVideoDiscToStoreScreen();
+                  break;
+              case "View cart":
+                  Aims.closeStoreScreen();
+                  //Aims.openCartScreen();
+                  break;
+          }
+      }
+  }
+
 }

@@ -1,11 +1,13 @@
 package hust.soict.dsai.aims.media;
 
+import exception.PlayerException;
+
 public class Track implements Playable {
 	//attributes
 	private String title;
 	private int length;
 	
-	//contructors
+	//constructor
 	public Track(String title, int length) {
 		this.title = title;
 		this.length = length;
@@ -38,4 +40,8 @@ public class Track implements Playable {
 		return track.getTitle().equals(this.getTitle()) 
 				&& track.getLength() == this.getLength();
 	}
+
+	public String playGUI() throws PlayerException {
+        return "BaoPhuc-Playing track " + this.getTitle();
+    }
 }

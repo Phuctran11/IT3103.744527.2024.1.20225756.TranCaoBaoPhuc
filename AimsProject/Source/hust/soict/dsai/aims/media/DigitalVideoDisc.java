@@ -4,20 +4,20 @@ public class DigitalVideoDisc extends Disc implements Playable {
     //attributes extends Disc
 
     //constructors
-	public DigitalVideoDisc(int id, String title) {
-		super(id, title);
+	public DigitalVideoDisc( String title) {
+		super( title);
 	}
-    public DigitalVideoDisc(int id, String title, String category, float cost, String director, int length) {
-        this(id, title, category, cost);
+    public DigitalVideoDisc(String title, String category, float cost, String director, int length) {
+        this( title, category, cost);
         this.setDirector(director);
     }
-    public DigitalVideoDisc(int id, String title, String category, float cost) {
-    	this(id, title);
+    public DigitalVideoDisc(String title, String category, float cost) {
+    	this(title);
     	this.setCategory(category);
     	this.setCost(cost);
     }
-    public DigitalVideoDisc(int id, String title, String category, String director, int length, float cost) {
-    	this(id, title, category, cost);
+    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
+    	this(title, category, cost);
     	this.setDirector(director);
     	this.setLength(length);
     }
@@ -36,5 +36,11 @@ public class DigitalVideoDisc extends Disc implements Playable {
     public void play() {
     	System.out.println("BaoPhuc-Playing DVD: " + this.getTitle());
     	System.out.println("BaoPhuc-DVD's length: " + this.getLength());
+    }
+    
+    //play GUI
+    public String playGUI() {
+        return "Playing DVD: " + this.getTitle() + "\n" + 
+                "DVD length: " + formatDuration(this.getLength());
     }
 }

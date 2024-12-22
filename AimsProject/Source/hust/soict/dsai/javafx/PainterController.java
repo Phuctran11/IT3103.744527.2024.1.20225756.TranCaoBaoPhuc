@@ -1,13 +1,15 @@
 package hust.soict.dsai.javafx;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.RadioButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.shape.Rectangle;
 
 public class PainterController {
 
@@ -49,4 +51,8 @@ public class PainterController {
 
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> dc5e09f12f3fad4918c7bb118c7e618ed60fe38a
