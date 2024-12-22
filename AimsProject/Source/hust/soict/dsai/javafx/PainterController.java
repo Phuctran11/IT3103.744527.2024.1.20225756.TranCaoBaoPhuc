@@ -51,4 +51,8 @@ public class PainterController {
 
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> dc5e09f12f3fad4918c7bb118c7e618ed60fe38a
