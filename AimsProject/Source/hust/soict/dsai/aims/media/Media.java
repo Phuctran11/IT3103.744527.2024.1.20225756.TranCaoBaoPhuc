@@ -1,6 +1,10 @@
 package hust.soict.dsai.aims.media;
 
+import java.time.Duration;
+
 import java.util.Comparator;
+
+import exception.PlayerException;
 
 public abstract class Media implements Comparable<Media>{
     @Override
@@ -17,20 +21,20 @@ public abstract class Media implements Comparable<Media>{
     private String title;
     private String category;
     private float cost;
-
+    private static int nbMedia = 0;
     //constructor
-    public Media(int id, String title){
-        this.id = id;
+    public Media( String title){
+        this.id = ++nbMedia;
         this.title = title;
     }
 
-    public Media(int id, String title, String category, float cost){
-        this.id = id;
+    public Media(String title, String category, float cost){
+        this.id = ++nbMedia;
         this.title = title;
         this.category = category;
         this.cost = cost;
     }
-
+    
     //getter and setter for id
     public int getId(){
         return id;
@@ -74,7 +78,7 @@ public abstract class Media implements Comparable<Media>{
         System.out.println("BaoPhuc-Playing media " +getTitle());
     }
     //method to play GUI
-    public String playGUI() {
+    public String playGUI() throws PlayerException {
         return "BaoPhuc-Playing media " +getTitle();
     }
     //method to check identical objects
@@ -100,4 +104,8 @@ public abstract class Media implements Comparable<Media>{
     public static final Comparator<Media> COMPARE_BY_TITILE_COST = new MediaComparatorByTitleCost();
     public static final Comparator<Media> COMPARE_BY_COST_TITILE = new MediaComparatorByCostTitle();
 
+    public String formatDuration(int durationInSeconds) {
+        Duration duration = Duration.ofSeconds(durationInSeconds);
+        return String.format("%02d:%02d", duration.toMinutes(), duration.minusMinutes(duration.toMinutes()).getSeconds());
+    }
 }

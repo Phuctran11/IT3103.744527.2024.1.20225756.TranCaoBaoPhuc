@@ -4,12 +4,19 @@ public class Disc extends Media{
 	private int length;
 	private String director;
 	
-	//construtors
-	public Disc(int id, String title) {
-		super(id, title);
+	//constructor
+	public Disc(String title) {
+		super (title);
 	}
-	public Disc(int id, String title, String category, float cost, String director, int length) {
-		super(id, title, category, cost);
+	public Disc(String title, String category, float cost) {
+		super(title, category, cost);
+	}
+	public Disc( String title, String category, float cost, String director) {
+		super(title, category, cost);
+		this.director = director;
+	}
+	public Disc( String title, String category, float cost, String director, int length) {
+		super(title, category, cost);
 		this.director = director;
 		this.length = length;
 	}

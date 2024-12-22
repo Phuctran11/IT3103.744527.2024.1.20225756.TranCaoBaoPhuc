@@ -1,20 +1,25 @@
 package hust.soict.dsai.aims.media;
 
+import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
+
+import exception.PlayerException;
 
 public class CompactDisc extends Disc implements Playable {
 	//attributes
 	private String artist;
 	private List<Track> tracks = new ArrayList<Track>();
 	
-	//construtor
-	public CompactDisc(int id, String title, String category, float cost, 
-						String director, int length, String artist ) {
-		super(id, title, category, cost, director, length);
+	//constructor
+	public CompactDisc( String title, String category, float cost, String artist ) {
+		super(title, category, cost);
 		this.artist = artist;
 	}
-	
+	public CompactDisc( String title, String category, float cost, String director, int length, String artist) {
+		super(title, category, cost, director, length);
+		this.artist = artist;
+	}
 	//getter and setter for artist
 	public String getArtist() {
 		return artist;
@@ -75,5 +80,19 @@ public class CompactDisc extends Disc implements Playable {
 			track.play();
 		}
 		
+	}
+	
+	//GUI
+	public String playGUI() throws PlayerException {
+        String output =  "Playing CD: " + this.getTitle() + "\n" + 
+                        "CD length: " + formatDuration(this.getLength()) + "\n"+ "\n";
+        for (Track track : tracks) {
+            output += track.playGUI() + "\n";
+        }
+        return output;
+    }
+	public Component getTracks() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

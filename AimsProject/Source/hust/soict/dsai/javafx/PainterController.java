@@ -1,41 +1,54 @@
 package hust.soict.dsai.javafx;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.RadioButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.shape.Rectangle;
 
 public class PainterController {
 
     @FXML
-    private Pane drawingAreaPane; 
+    private RadioButton eraser;
 
     @FXML
-    private ToggleGroup identical; 
+    private RadioButton pen;
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private Pane drawingAreaPane;
 
     @FXML
     void clearButtonPressed(ActionEvent event) {
-        drawingAreaPane.getChildren().clear(); 
+		  drawingAreaPane.getChildren().clear();
     }
 
     @FXML
     void drawingAreaMouseDragged(MouseEvent event) {
-        double x = event.getX();
-        double y = event.getY();
-
-      
-        if (x >= 0 && x <= drawingAreaPane.getWidth() && y >= 0 && y <= drawingAreaPane.getHeight()) {
-            if (((RadioButton) identical.getSelectedToggle()).getText().equals("Pen")) {
-                Circle newCircle = new Circle(x, y, 4, Color.BLACK);
-                drawingAreaPane.getChildren().add(newCircle); 
-            } else if (((RadioButton) identical.getSelectedToggle()).getText().equals("Eraser")) {
-                Circle eraserCircle = new Circle(x, y, 10, Color.WHITE); 
-                drawingAreaPane.getChildren().add(eraserCircle); 
-            }
-        }
+      Rectangle clipArea = new Rectangle(0, 0, drawingAreaPane.getWidth(), drawingAreaPane.getHeight());
+      drawingAreaPane.setClip(clipArea);
+      Color inkColor = Color.BLACK;
+      if (eraser.isSelected()) {
+        inkColor = Color.WHITE;
+      } 
+      Circle newCircle = new Circle(event.getX(), event.getY(), 6, inkColor);
+      drawingAreaPane.getChildren().add(newCircle);
     }
+
+    @FXML
+    void initialize() {
+        assert drawingAreaPane != null : "fx:id=\"drawingAreaPane\" was not injected: check your FXML file 'Painter.fxml'.";
+
+    }
+
 }
